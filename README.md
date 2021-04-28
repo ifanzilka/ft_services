@@ -31,6 +31,6 @@ Docker:
         rm -rf ~/Library/Containers/com.docker.docker
         ln -s ~/goinfre/docker ~/Library/Containers/com.docker.docker
 
-2) DOWNLOAD DOCKER IN MSC
+2) DOWNLOAD DOCKER and VirtualBox IN MSC
 
   
