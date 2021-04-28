@@ -33,4 +33,9 @@ Docker:
 
 2) DOWNLOAD DOCKER and VirtualBox IN MSC
 
-  
+Minikube:
+        
+        minikube start --vm-driver=virtualbox --memory 4096
+Link 
+       
+       mv .minikube ./goinfre/minikube/
