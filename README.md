@@ -1,7 +1,11 @@
 # ft_services
 
+## Links:
+https://www.notion.so/ft_services-e0700a527d0d45039388f65087c23b21
 
+https://vk.com/swquinc
 
+https://vk.com/forum42intra
 
 ## Download & Install Macos
 
