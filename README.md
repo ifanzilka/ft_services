@@ -39,3 +39,4 @@ Minikube:
 Link 
        
        mv .minikube ./goinfre/minikube/
+       ln -s ./goinfre/minikube/ ./.minikube
