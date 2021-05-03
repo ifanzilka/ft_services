@@ -7,6 +7,6 @@
         Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
 #### 3)Нам нужно переключить Docker на работу с кластера
  
- Для этого используем команду
+ Для этого используем команду (передадим перменные ENV)
         
         eval $(minikube docker-env)
