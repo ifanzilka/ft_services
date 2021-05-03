@@ -15,7 +15,7 @@ add in PATH :
     
     echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
     
-    export        PATH="/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki"
+    export        PATH="/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/bmarilli/.brew/bin"
     
 Link:
         
