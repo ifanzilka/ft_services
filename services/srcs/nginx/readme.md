@@ -13,3 +13,14 @@
 #### 4) Пытаемся снова все собрать 
         Docker build -t nginx_image .
   У нас успешно все собирается      
+#### 5) Запсук
+
+
+        kubectl apply -f nginx.yaml
+        kubectl get pods
+        
+При возникновении ошибок можем посмотреть logs
+        
+        kubectl logs nginx
+        kubectl delete pods nginx
+       
