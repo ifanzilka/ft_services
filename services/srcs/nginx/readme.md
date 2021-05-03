@@ -28,4 +28,5 @@
 #### 6) Подключаем metalDB
         
         minikube addons list
-        
+        minikube addons enable metallb
+    
