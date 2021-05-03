@@ -22,6 +22,6 @@
 При возникновении ошибок можем посмотреть logs
         
         kubectl logs nginx
-        kubectl discribe nginx
+        kubectl discribe pods nginx
         kubectl delete pods nginx
        
