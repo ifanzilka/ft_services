@@ -32,3 +32,6 @@
 #### 7) Мы добавили конфиги для metaldb
 
      kubectl apply -f configmap.yaml
+#### 8) Переделали все под Деплой
+     kubectl get deploy 
+     kubectl delete deploy nginx-deployment
