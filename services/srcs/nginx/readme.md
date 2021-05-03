@@ -29,4 +29,6 @@
         
         minikube addons list
         minikube addons enable metallb
-    
+#### 7) Мы добавили конфиги для metaldb
+
+     kubectl apply -f configmap.yaml
