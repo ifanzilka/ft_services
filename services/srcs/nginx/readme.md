@@ -25,3 +25,7 @@
         kubectl discribe pods nginx
         kubectl delete pods nginx
        
+#### 6) Подключаем metalDB
+        
+        minikube addons list
+        
