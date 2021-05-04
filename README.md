@@ -44,3 +44,8 @@ Link
        
        mv .minikube ./goinfre/minikube/
        ln -s ./goinfre/minikube/ ./.minikube
+
+
+## Download & Install Linux
+
+link https://minikube.sigs.k8s.io/docs/start/
