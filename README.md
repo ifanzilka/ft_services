@@ -53,3 +53,9 @@ Minikube https://minikube.sigs.k8s.io/docs/start/
 VirtualBox https://losst.ru/ustanovka-virtualbox-v-ubuntu-18-04
 
 Kubernetes(kubectl) https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/
+
+
+## Other
+  Переходим в Pods
+   
+        kubectl exec -it nginx-deployment-865d885ff7-sm2hz  sh
