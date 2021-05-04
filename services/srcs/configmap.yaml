@@ -3,6 +3,9 @@ kind: ConfigMap
 metadata:
   namespace: metallb-system
   name: config
+  labels:
+    env   : prod
+    owner : ifanzilka
 data:
   config: |
     address-pools:

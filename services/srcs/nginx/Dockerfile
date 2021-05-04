@@ -4,24 +4,24 @@ FROM alpine:3.12
 RUN apk update && \
     apk add nginx && \
     apk add openrc --no-cache &&\
-    apk add vim
-
+    apk add vim &&\
+    apk add openssh
 
 RUN mkdir -p /run/nginx
+# Чтобы закинуть ключ для ssh
+RUN mkdir .ssh
+
+
+# добавили пользователя для проверки ssh
+RUN adduser -D admin -G root && echo "admin:admin" | chpasswd
 
 RUN mkdir -p /var/www/server
 RUN echo "<h1>Hello world.</h1>" > /var/www/server/index.html;
 
 
-
-#COPY ./srcs/nginx.conf /etc/nginx/sites-available/localhost
 COPY ./srcs/default.conf /etc/nginx/conf.d
-# т.к. nginx легко устанавливается много чего делает сам то это все не нужно
-#RUN ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/
-#RUN unlink /etc/nginx/sites-enabled/default
-#WORKDIR /etc/nginx/sites-available/
-#COPY ./srcs/nginx.conf /etc/nginx/sites-available/nginx.conf
-#RUN ln -s /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled
+COPY ./srcs/authorized_keys .ssh/id_rsa
+
 
 #Script for ssl
 WORKDIR ~
@@ -32,6 +32,8 @@ RUN rm -rf ssl.sh
 
 WORKDIR /
 COPY ./srcs/start.sh /
+
+RUN chown -R admin:root /etc/ssh
 
 EXPOSE 80 443 22
 CMD ["sh" ,"start.sh"]
