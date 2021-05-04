@@ -48,4 +48,6 @@ Link
 
 ## Download & Install Linux
 
-link https://minikube.sigs.k8s.io/docs/start/
+Minikube https://minikube.sigs.k8s.io/docs/start/
+
+VirtualBox https://losst.ru/ustanovka-virtualbox-v-ubuntu-18-04
