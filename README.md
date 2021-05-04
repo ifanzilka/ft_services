@@ -51,3 +51,5 @@ Link
 Minikube https://minikube.sigs.k8s.io/docs/start/
 
 VirtualBox https://losst.ru/ustanovka-virtualbox-v-ubuntu-18-04
+
+Kubernetes(kubectl) https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/
