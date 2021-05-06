@@ -1,8 +1,8 @@
 # docker build -t phpmyadmin_image .s
 # kubectl apply -f phpmyadmin.yaml
 
-# docker build -t wordpress_image ./srcs/wordpress/
-# kubectl apply -f srcs/wordpress/wordpress.yaml
+docker build -t wordpress_image ./srcs/wordpress/
+kubectl apply -f srcs/wordpress/wordpress.yaml
 
 echo "\033[32m
 ░██╗░░░░░░░██╗░█████╗░██████╗░██████╗░██████╗░██████╗░███████╗░██████╗░██████╗  ██╗░██████╗

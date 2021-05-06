@@ -1,19 +1,31 @@
 FROM alpine:3.12
-EXPOSE 3306
 
+# for telegraf
 RUN echo "http://dl-2.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 
-# update && upgrade
-RUN apk update && \
-    apk add openrc --no-cache &&\
-    apk add vim
+# install
+RUN		apk update
+RUN		apk upgrade
+RUN     apk add openrc  
+# RUN     apk add mysql mysql-client
+RUN     apk add mariadb
+RUN     apk add mariadb-client
+RUN     apk add mariadb-common 
 
-RUN apk add openrc telegraf mariadb mariadb-common mariadb-client
 
-RUN openrc && touch /run/openrc/softlevel
+# RUN     apk add telegraf 
+
+
+#copy config
+COPY ./srcs/mysql_bd.cnf /etc/my.cnf.d
+
+# хранилище БД (внутри серверы)
+VOLUME [ "/var/lib/mysql" ]
 
 ## copy sh
 WORKDIR /
 COPY ./srcs/start.sh /
+
+EXPOSE 3306
 
 ENTRYPOINT sh start.sh

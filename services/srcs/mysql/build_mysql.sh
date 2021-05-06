@@ -1,8 +1,8 @@
 # docker build -t mysql_image .
 # kubectl apply -f mysql.yaml
 
-# docker build -t mysql_image ./srcs/mysql/
-# kubectl apply -f srcs/mysql/mysql.yaml
+docker build -t mysql_image ./srcs/mysql/
+kubectl apply -f srcs/mysql/mysql.yaml
 
 echo "\033[32m
 ███╗░░░███╗██╗░░░██╗░██████╗░██████╗░██╗░░░░░  ██╗░██████╗  ██████╗░███████╗░█████╗░██████╗░██╗░░░██╗

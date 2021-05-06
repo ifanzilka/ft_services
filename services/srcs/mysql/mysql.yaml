@@ -1,15 +1,55 @@
+
+### Service mysql - svc 
 apiVersion: v1
 kind: Service
 metadata:
   name: mysql-svc
 spec:
   type: ClusterIP
-  #clusterIP: 10.99.15.15
+  clusterIP: 10.99.15.15
   selector:
     app: mysqlPod
   ports:
       - port: 3306
 ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: mysql
+# spec:
+#   template:
+#     metadata:
+#       name: mysql-pod
+#       labels:
+#         app: mysqlPod
+#         type: mysqltype
+#     spec:
+#       containers: 
+#         - name: mysqlcontainer #for dashboard
+#           image: mysql_image   #is image
+#           imagePullPolicy: Never
+#           ports:
+#             - containerPort: 3306
+#           volumeMounts:                   # говорим что есть хранилище
+#             - mountPath: "/var/lib/mysql"
+#               name: mysql                 
+      #     livenessProbe:
+      #       exec:
+      #         command:
+      #           - sh
+      #           - /check.sh
+      #       initialDelaySeconds: 30
+      #       periodSeconds: 10
+      # volumes:                    # если под умер перекидываем в реплику
+      #   - name: mysql
+      #     hostPath:
+      #       path: /mnt/mysql
+      #       type: Directory
+  # replicas: 1
+  # selector:
+  #   matchLabels:
+  #     app: mysqlPod
+  #     type: mysqltype
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -31,18 +71,18 @@ spec:
           volumeMounts:
             - mountPath: "/var/lib/mysql"
               name: mysql
-          # livenessProbe:
-          #   exec:
-          #     command:
-          #       - sh
-          #       - /probe.sh
-          #   initialDelaySeconds: 30
-          #   periodSeconds: 10
-      volumes:
-        - name: mysql
-          hostPath:
-            path: /mnt/mysql
-            type: Directory
+          livenessProbe:
+            exec:
+              command:
+                - sh
+                - /probe.sh
+            initialDelaySeconds: 30
+            periodSeconds: 10
+      # volumes:
+      #   - name: mysql
+      #     hostPath:
+      #       path: /mnt/mysql
+      #       type: Directory
   replicas: 1
   selector:
     matchLabels:
