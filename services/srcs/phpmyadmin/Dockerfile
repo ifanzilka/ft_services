@@ -41,9 +41,22 @@ WORKDIR /usr/share/webapps
 
 #donwload phpmyadmin
 RUN wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-languages.tar.gz && \
-tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz && \
-mv phpMyAdmin-5.0.2-all-languages phpmyadmin && \
-mv /config.inc.php /usr/share/webapps/phpmyadmin
+tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz
+
+RUN mv phpMyAdmin-5.0.2-all-languages phpmyadmin
+RUN mv /config.inc.php /usr/share/webapps/phpmyadmin
+
+RUN chmod -R 777 /usr/share/webapps/
+RUN ln -s /usr/share/webapps/phpmyadmin/ /var/www/localhost/htdocs/phpmyadmin
+#RUN ln -s /usr/share/webapps/phpmyadmin/ /var/www/html/
+
+
+# rc
+RUN mkdir -p /run/openrc
+RUN touch /run/openrc/softlevel
+#rc-service rsyslog start
+RUN openrc
+
 
 WORKDIR /
 ENTRYPOINT sh start.sh
