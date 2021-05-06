@@ -1,4 +1,5 @@
 #!/bin/sh
+openrc
 
 mysql_install_db --user=root --datadir="/var/lib/mysql"
 

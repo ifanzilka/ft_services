@@ -1,6 +1,7 @@
 minikube stop
 minikube delete
 minikube start --driver=virtualbox --cpus=4 --memory=4G
+kubectl delete pods --all 
 minikube addons enable dashboard
 minikube addons enable metallb
 # docker pull metallb/speaker:v0.8.2

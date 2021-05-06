@@ -14,7 +14,6 @@ RUN apk update && \
 # rc
 RUN mkdir -p /run/openrc
 RUN touch /run/openrc/softlevel
-#RUN openrc
 
  
 RUN     apk add telegraf 
@@ -30,7 +29,7 @@ RUN mkdir .ssh
 RUN adduser -D admin -G root && echo "admin:admin" | chpasswd
 
 RUN mkdir -p /var/www/server
-RUN echo "<h1>Hello world.</h1>" > /var/www/server/index.html;
+RUN echo "<h1>Hello ifanzilka.</h1>" > /var/www/server/index.html;
 
 # copy congig
 COPY ./srcs/default.conf /etc/nginx/conf.d
