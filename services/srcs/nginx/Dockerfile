@@ -8,9 +8,10 @@ RUN apk update && \
     apk add nginx && \
     apk add openrc --no-cache &&\
     apk add vim &&\
-    apk add openssh 
+    apk add --no-cache openssl &&\
+	apk add openssh
+ 
 RUN     apk add telegraf 
-
 
 RUN mkdir -p /run/nginx
 
@@ -32,11 +33,6 @@ COPY ./srcs/authorized_keys .ssh/id_rsa
 
 
 #Script for ssl
-# WORKDIR ~
-# RUN apk add openssl
-# COPY ./srcs/ssl.sh .
-# RUN sh ssl.sh
-# RUN rm -rf ssl.sh
 
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     -keyout /etc/ssl/private/nginx-selfsigned.key \

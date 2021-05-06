@@ -3,12 +3,12 @@ kind: Service
 metadata:
   name: nginx-svc
   annotations:
-    metallb.universe.tf/allow-shared-ip: shared #if with loadbalancer
+    metallb.universe.tf/allow-shared-ip: shared
 spec:
   selector:
     app: nginx
   type: LoadBalancer
-  loadBalancerIP: 192.168.99.115
+  #loadBalancerIP: 192.168.99.115
   ports:
     - protocol: TCP
       name: http

@@ -11,7 +11,7 @@ eval $(minikube -p minikube docker-env)
 kubectl apply -f srcs/configmap.yaml
 
 #nginx
-#sh srcs/nginx/build_nginx.sh
+sh srcs/nginx/build_nginx.sh
 
 
 #phpmyadmin
@@ -22,6 +22,6 @@ kubectl apply -f srcs/configmap.yaml
 
 
 #wordpress
-sh srcs/wordpress/build_wordpress.sh
+#sh srcs/wordpress/build_wordpress.sh
 
 minikube dashboard &
