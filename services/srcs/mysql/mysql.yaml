@@ -75,7 +75,7 @@ spec:
             exec:
               command:
                 - sh
-                - /probe.sh
+                - /check.sh
             initialDelaySeconds: 30
             periodSeconds: 10
       volumes:

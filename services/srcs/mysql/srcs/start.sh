@@ -23,6 +23,7 @@ mysql -u root -e "GRANT ALL PRIVILEGES ON $db_name.* TO '$username'@'%' WITH GRA
 mysql -u root -e "UPDATE mysql.user SET plugin='mysql_native_password' WHERE user='$username';"
 mysql -u root -e "FLUSH PRIVILEGES;"
 
+mysql -u root $db_name < /wp_base.sql
 
 sh usr/share/mariadb/mysql.server start
 tail -f /dev/null

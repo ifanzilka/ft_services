@@ -12,7 +12,6 @@ RUN     apk add mariadb
 RUN     apk add mariadb-client
 RUN     apk add mariadb-common 
 
-
 # RUN     apk add telegraf 
 
 
@@ -28,6 +27,16 @@ COPY ./srcs/mysql_bd.cnf /etc/my.cnf.d
 
 # хранилище БД (внутри серверы)
 VOLUME [ "/var/lib/mysql" ]
+
+
+## copy bd wordpress
+WORKDIR /
+COPY ./srcs/wp_base.sql .
+
+#Checks (for serv in pods) 
+
+WORKDIR /
+COPY ./srcs/check.sh /
 
 ## copy sh
 WORKDIR /
