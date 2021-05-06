@@ -10,9 +10,16 @@ RUN apk update && \
     apk add vim &&\
     apk add --no-cache openssl &&\
 	apk add openssh
+# rc
+RUN mkdir -p /run/openrc
+RUN touch /run/openrc/softlevel
+#rc-service rsyslog start
+RUN openrc
+
  
 RUN     apk add telegraf 
 
+# Create folder for PID file
 RUN mkdir -p /run/nginx
 
 

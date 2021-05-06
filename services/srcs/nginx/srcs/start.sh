@@ -1,7 +1,5 @@
 #!/bin/sh
-openrc
-touch /run/openrc/softlevel
-rc-status
+#openrc
 # for ssh
 rc-service sshd start
 nginx -g 'daemon off;'
