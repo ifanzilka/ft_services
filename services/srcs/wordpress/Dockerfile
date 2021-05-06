@@ -14,6 +14,12 @@ php7-mcrypt php7-gettext php7-ldap php7-ctype php7-dom \
 php7-pdo php7-pdo_mysql php7-soap php7-xmlrpc php7-posix php php-fpm
 
 
+# rc
+RUN mkdir -p /run/openrc
+RUN touch /run/openrc/softlevel
+RUN openrc
+
+
 WORKDIR /var/www/localhost/htdocs
 
 #download

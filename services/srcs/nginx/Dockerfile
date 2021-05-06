@@ -10,10 +10,10 @@ RUN apk update && \
     apk add vim &&\
     apk add --no-cache openssl &&\
 	apk add openssh
+
 # rc
 RUN mkdir -p /run/openrc
 RUN touch /run/openrc/softlevel
-#rc-service rsyslog start
 RUN openrc
 
  

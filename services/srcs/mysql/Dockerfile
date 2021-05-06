@@ -7,13 +7,20 @@ RUN echo "http://dl-2.alpinelinux.org/alpine/edge/community" >> /etc/apk/reposit
 RUN		apk update
 RUN		apk upgrade
 RUN     apk add openrc  
-# RUN     apk add mysql mysql-client
+RUN     apk add mysql mysql-client
 RUN     apk add mariadb
 RUN     apk add mariadb-client
 RUN     apk add mariadb-common 
 
 
 # RUN     apk add telegraf 
+
+
+
+# rc
+RUN mkdir -p /run/openrc
+RUN touch /run/openrc/softlevel
+RUN openrc
 
 
 #copy config

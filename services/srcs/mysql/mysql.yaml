@@ -6,7 +6,7 @@ metadata:
   name: mysql-svc
 spec:
   type: ClusterIP
-  clusterIP: 10.99.15.15
+  #clusterIP: 10.99.15.15
   selector:
     app: mysqlPod
   ports:
@@ -78,11 +78,11 @@ spec:
                 - /probe.sh
             initialDelaySeconds: 30
             periodSeconds: 10
-      # volumes:
-      #   - name: mysql
-      #     hostPath:
-      #       path: /mnt/mysql
-      #       type: Directory
+      volumes:
+        - name: mysql
+          hostPath:
+            path: /mnt/mysql
+            type: Directory
   replicas: 1
   selector:
     matchLabels:
