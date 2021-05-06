@@ -18,12 +18,12 @@ kubectl apply -f srcs/configmap.yaml
 sh srcs/nginx/build_nginx.sh
 
 # mysql
-sh srcs/mysql/build_mysql.sh
+#sh srcs/mysql/build_mysql.sh
 
 #phpmyadmin
-sh srcs/phpmyadmin/build_phpmyadmin.sh
+#sh srcs/phpmyadmin/build_phpmyadmin.sh
 
 #wordpress
-sh srcs/wordpress/build_wordpress.sh
+#sh srcs/wordpress/build_wordpress.sh
 
 minikube dashboard &

@@ -78,7 +78,7 @@ spec:
                 - /check.sh
             initialDelaySeconds: 30
             periodSeconds: 10
-      volumes:
+      volumes:  #внутри minikube папка
         - name: mysql
           hostPath:
             path: /mnt/mysql

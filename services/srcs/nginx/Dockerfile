@@ -14,7 +14,7 @@ RUN apk update && \
 # rc
 RUN mkdir -p /run/openrc
 RUN touch /run/openrc/softlevel
-RUN openrc
+#RUN openrc
 
  
 RUN     apk add telegraf 

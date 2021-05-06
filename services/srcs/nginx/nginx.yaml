@@ -1,15 +1,16 @@
+# loadbalncer
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-svc
+  name: nginx-svc       #name service для  которого выдадим ip 
   annotations:
-    metallb.universe.tf/allow-shared-ip: shared
-spec:
+    metallb.universe.tf/allow-shared-ip: shared #ip with metallb
+spec:   # часть конфига для сервиса
   selector:
-    app: nginx
+    app: nginx  #
   type: LoadBalancer
   #loadBalancerIP: 192.168.99.115
-  ports:
+  ports: # порты наверх в сеть
     - protocol: TCP
       name: http
       port: 80
@@ -23,15 +24,16 @@ spec:
       port: 22
       targetPort: 22
 ---
+# развертывание пода (рабочая версия)
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: nginx-deployment # как будет называться
   labels:
     app: nginx
 spec:
-  replicas: 1
-  selector:
+  replicas: 1  #кол во клонов котоыре будут заменять если упал 
+  selector:     
     matchLabels:
       app: nginx
   template:
