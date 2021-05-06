@@ -5,11 +5,6 @@ mysql_install_db --user=root --datadir="/var/lib/mysql"
 rc-service mariadb setup
 rc-service mariadb start
 
-# mysql --user=root -e "CREATE DATABASE wordpress; use wordpress"
-# mysql --user=root -e "CREATE DATABASE phpmyadmin; use phpmyadmin"
-# mysql -u root -e "CREATE USER 'admin'@'%' IDENTIFIED BY 'admin'"
-# mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%'; FLUSH PRIVILEGES;"
-
 db_name='wp_base'
 username='adminwp'
 password='adminwp'

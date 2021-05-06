@@ -27,7 +27,7 @@ COPY ./srcs/default.conf /etc/nginx/conf.d
 COPY ./srcs/config.inc.php .
 
 # copy check (for reastaart)
-COPY ./srcs/check.sh /
+COPY ./srcs/check.sh .
 
 #cope start.sh
 COPY ./srcs/start.sh .
@@ -55,7 +55,7 @@ RUN ln -s /usr/share/webapps/phpmyadmin/ /var/www/localhost/htdocs/phpmyadmin
 RUN mkdir -p /run/openrc
 RUN touch /run/openrc/softlevel
 #rc-service rsyslog start
-RUN openrc
+#RUN openrc
 
 
 WORKDIR /

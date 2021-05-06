@@ -19,7 +19,7 @@ RUN     apk add mariadb-common
 # rc
 RUN mkdir -p /run/openrc
 RUN touch /run/openrc/softlevel
-RUN openrc
+#RUN openrc
 
 
 #copy config
