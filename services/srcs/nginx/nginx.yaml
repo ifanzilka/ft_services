@@ -6,7 +6,7 @@ metadata:
   annotations:
     metallb.universe.tf/allow-shared-ip: shared #ip with metallb
 spec:   # часть конфига для сервиса
-  selector:
+  selector:  # указываем к чему это относится
     app: nginx  #
   type: LoadBalancer
   #loadBalancerIP: 192.168.99.115
@@ -45,6 +45,8 @@ spec:
       - name: nginx
         image: nginx_image
         imagePullPolicy: Never
+        # securityContext:
+        #   runAsUser: 1000
         ports:
         - containerPort: 80
         - containerPort: 443
