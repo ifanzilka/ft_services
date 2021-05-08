@@ -16,10 +16,14 @@ RUN apk add openrc
 RUN mkdir -p /run/openrc
 RUN touch /run/openrc/softlevel
 
+# хранилище БД (внутри серверы)
+VOLUME [ "/var/lib/ftps" ]
+
+RUN mkdir -p /var/lib/ftps/admin
 
 # add user
+#RUN adduser --home "/var/lib/ftps/admin" -D admin && echo "admin:admin" | chpasswd
 RUN adduser -D admin && echo "admin:admin" | chpasswd
-
 
 #Script for ssl
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \

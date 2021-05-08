@@ -22,84 +22,136 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ftps-deployment
-  labels:
-    app: ftps
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: ftps
   template:
     metadata:
+      name: ftps-pod
       labels:
-        app: ftps
+        app: ftpspod
+        type: ftpstype
     spec:
-      containers:
+      containers: 
         - name: ftps
           image: ftps_image
           imagePullPolicy: Never
           ports:
             - containerPort: 21
             - containerPort: 21048
-                    ports:
-            - containerPort: 3306
-          volumeMounts: # папка внутри линукса
-            - mountPath: "/var/ftps"
-              name: ftps_dir
-         volumes:  #внутри minikube папка
-                - name: ftps_dir
-                hostPath:
-                path: /mnt/ftps
-                type: Directory
-    
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: ftps
-#   annotations:
-#     metallb.universe.tf/allow-shared-ip: shared
-# spec:
-#   type: LoadBalancer
-#   ports:
-#   - name: port21
-#     port: 21
-#     targetPort: 21
-#   - name: port21000
-#     port: 21048
-#     targetPort: 21048
-#   selector:
-#     app: ftpsPod
+          volumeMounts:
+            - mountPath: "/var/lib/ftps"
+              name: ftps
+          # livenessProbe:
+          #   exec:
+          #     command:
+          #       - sh
+          #       - /check.sh
+          #   initialDelaySeconds: 30
+          #   periodSeconds: 10
+      volumes:
+        - name: ftps
+          hostPath:
+            path: /mnt/ftps
+            type: Directory
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ftpspod
+      type: ftpstype
+
+
+
+
 # ---
 # apiVersion: apps/v1
 # kind: Deployment
 # metadata:
-#   name: ftpsdeploy
+#   name: ftps-deployment
+#   labels:
+#     app: ftps
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: ftps
+#   template:
+#     metadata:
+#       labels:
+#         app: ftps      
+#     spec:
+#       containers:
+#         - name: ftps
+#           image: ftps_image
+#           imagePullPolicy: Never
+#           ports:
+#             - containerPort: 21
+#             - containerPort: 21048
+#           volumeMounts: # папка внутри линукса
+#           - mountPath: /var/ftps
+#             name: ftpsdir        
+#       volumes:  #внутри minikube папка
+#       - name: ftpsdir
+#         hostPath:
+#         path: /mnt/mysql
+#         type: Directory       
+      
+     
+### Service mysql - svc 
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: ftps-svc
+#   annotations:
+#     metallb.universe.tf/allow-shared-ip: shared
+# spec:
+#   selector:
+#     app: ftps
+#   type: LoadBalancer
+#   ports:
+#     - protocol: TCP
+#       name: twenty-one
+#       port: 21
+#       targetPort: 21
+#     - protocol: TCP
+#       name: passive
+#       port: 21048
+#       targetPort: 21048
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: ftps-deployment
 # spec:
 #   template:
 #     metadata:
 #       name: ftps-pod
 #       labels:
 #         app: ftpsPod
-#         type: ftps
+#         type: ftpstype
 #     spec:
 #       containers: 
-#         - name: ftpscontainer
+#         - name: ftps
 #           image: ftps_image
 #           imagePullPolicy: Never
 #           ports:
-#             - name: port21
-#               containerPort: 21
-#             - name: port21000
-#               containerPort: 21048
+#             - containerPort: 21
+#             - containerPort: 21048
+#           volumeMounts: # папка внутри линукса
+#             - mountPath: "/var/ftps"
+#               name: ftps_dir
 #           # livenessProbe:
 #           #   exec:
 #           #     command:
 #           #       - sh
-#           #       - /probe.sh
+#           #       - /check.sh
 #           #   initialDelaySeconds: 30
 #           #   periodSeconds: 10
+#       volumes:  #внутри minikube папка
+#         - name: ftps_dir
+#           hostPath:
+#             path: /mnt/ftps
+#             type: Directory
 #   replicas: 1
 #   selector:
 #     matchLabels:
 #       app: ftpsPod
-#       type: ftps
+#       type: ftpstype
