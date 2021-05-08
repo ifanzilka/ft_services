@@ -32,9 +32,6 @@ COPY ./srcs/check.sh .
 #cope start.sh
 COPY ./srcs/start.sh .
 
-#copy telegraf
-WORKDIR /
-COPY ./srcs/telegraf.conf /etc/
 
 #root nginx
 RUN mkdir -p /usr/share/webapps/

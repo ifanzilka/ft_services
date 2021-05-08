@@ -14,8 +14,6 @@ RUN     apk add mariadb-common
 
 # RUN     apk add telegraf 
 
-
-
 # rc
 RUN mkdir -p /run/openrc
 RUN touch /run/openrc/softlevel
@@ -42,9 +40,6 @@ COPY ./srcs/check.sh /
 WORKDIR /
 COPY ./srcs/start.sh /
 
-#copy telegraf conf
-WORKDIR /
-COPY ./srcs/telegraf.conf /etc/
 
 EXPOSE 3306
 

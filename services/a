@@ -1,2 +1,0 @@
-2c4f5a187bf9   ef876980afcd           "sh start.sh"            17 minutes ago   Up 17 minutes             k8s_grafanacontainer_grafana-798b9f9555-nlgtd_default_b00fe739-ffc4-475e-8e8b-e19c9d07dac2_0
-dff68054bdff   k8s.gcr.io/pause:3.2   "/pause"                 17 minutes ago   Up 17 minutes             k8s_POD_grafana-798b9f9555-nlgtd_default_b00fe739-ffc4-475e-8e8b-e19c9d07dac2_0
