@@ -22,6 +22,10 @@ RUN openrc
 
 #copy conf
 WORKDIR /
+COPY ./srcs/grafana.db /usr/share/grafana/data/
+
+#copy conf
+WORKDIR /
 COPY ./srcs/start.sh /
 
 ENTRYPOINT ["sh", "start.sh"]
