@@ -17,13 +17,12 @@ RUN mkdir -p /run/openrc
 RUN touch /run/openrc/softlevel
 
 # хранилище БД (внутри серверы)
-VOLUME [ "/var/lib/ftps" ]
+VOLUME [ "/home/ftps" ]
 
-RUN mkdir -p /var/lib/ftps/admin
 
 # add user
-#RUN adduser --home "/var/lib/ftps/admin" -D admin && echo "admin:admin" | chpasswd
-RUN adduser -D admin && echo "admin:admin" | chpasswd
+#RUN adduser --home "/home/ftps/admin" -D admin && echo "admin:admin" | chpasswd
+RUN adduser  -D admin1 && echo "admin1:admin1" | chpasswd
 
 #Script for ssl
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \

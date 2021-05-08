@@ -38,7 +38,7 @@ spec:
             - containerPort: 21
             - containerPort: 21048
           volumeMounts:
-            - mountPath: "/var/lib/ftps"
+            - mountPath: "/home/ftps"
               name: ftps
           # livenessProbe:
           #   exec:
