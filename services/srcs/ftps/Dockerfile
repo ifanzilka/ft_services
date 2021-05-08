@@ -22,7 +22,7 @@ VOLUME [ "/home/ftps" ]
 
 # add user
 #RUN adduser --home "/home/ftps/admin" -D admin && echo "admin:admin" | chpasswd
-RUN adduser  -D admin1 && echo "admin1:admin1" | chpasswd
+#RUN adduser  -D admin1 && echo "admin1:admin1" | chpasswd
 
 #Script for ssl
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
@@ -31,9 +31,9 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     -subj "/C=RU/ST=Tatarstan/L=Kazan/O=21/OU=School/CN=localhost"
 
 
-RUN mkdir -p /var/log/ftp
-RUN touch /var/log/ftp/xferlog
-RUN touch /var/log/vsftpd.log
+#RUN mkdir -p /var/log/ftp
+#RUN touch /var/log/ftp/xferlog
+#RUN touch /var/log/vsftpd.log
 
 # copies
 COPY ./srcs/vsftpd.conf /etc/vsftpd/
