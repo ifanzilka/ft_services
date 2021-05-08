@@ -29,12 +29,12 @@ kubectl apply -f srcs/configmap.yaml
 #sh srcs/wordpress/build_wordpress.sh
 
 #influx
-#sh srcs/influxdb/build_influxdb.sh
+sh srcs/influxdb/build_influxdb.sh
 
 #ftps
-sh  srcs/ftps/build_ftps.sh
+#sh  srcs/ftps/build_ftps.sh
 
 #grafana
-#sh srcs/grafana/build_grafana.sh
+sh srcs/grafana/build_grafana.sh
 
 minikube dashboard &
