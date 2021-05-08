@@ -11,7 +11,7 @@ RUN apk update && \
     apk add --no-cache openssl &&\
 	apk add openssh
 
-# rc
+# openrc
 RUN mkdir -p /run/openrc
 RUN touch /run/openrc/softlevel
 
@@ -46,6 +46,9 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     -subj "/C=RU/ST=Tatarstan/L=Kazan/O=21/OU=School/CN=localhost"
 
 #Checks (for serv in pods) 
+
+# WORKDIR /
+# COPY ./srcs/telegraf.conf /etc/
 
 WORKDIR /
 COPY ./srcs/check.sh /

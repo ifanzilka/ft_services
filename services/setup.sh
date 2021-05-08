@@ -1,3 +1,4 @@
+pkill -f minikube 
 minikube stop
 minikube delete
 minikube start --driver=virtualbox --cpus=4 --memory=4G
@@ -18,12 +19,21 @@ kubectl apply -f srcs/configmap.yaml
 sh srcs/nginx/build_nginx.sh
 
 # mysql
-sh srcs/mysql/build_mysql.sh
+#sh srcs/mysql/build_mysql.sh
 
 #phpmyadmin
-sh srcs/phpmyadmin/build_phpmyadmin.sh
+#sh srcs/phpmyadmin/build_phpmyadmin.sh
 
 #wordpress
-sh srcs/wordpress/build_wordpress.sh
+#sh srcs/wordpress/build_wordpress.sh
+
+#influx
+#sh srcs/influxdb/build_influxdb.sh
+
+#ftps
+sh  srcs/ftps/build_ftps.sh
+
+#grafana
+#sh srcs/grafana/build_grafana.sh
 
 minikube dashboard &

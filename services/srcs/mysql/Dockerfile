@@ -42,6 +42,10 @@ COPY ./srcs/check.sh /
 WORKDIR /
 COPY ./srcs/start.sh /
 
+#copy telegraf conf
+WORKDIR /
+COPY ./srcs/telegraf.conf /etc/
+
 EXPOSE 3306
 
 ENTRYPOINT sh start.sh

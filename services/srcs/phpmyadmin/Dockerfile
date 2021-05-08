@@ -32,6 +32,10 @@ COPY ./srcs/check.sh .
 #cope start.sh
 COPY ./srcs/start.sh .
 
+#copy telegraf
+WORKDIR /
+COPY ./srcs/telegraf.conf /etc/
+
 #root nginx
 RUN mkdir -p /usr/share/webapps/
 
@@ -56,6 +60,7 @@ RUN mkdir -p /run/openrc
 RUN touch /run/openrc/softlevel
 #rc-service rsyslog start
 #RUN openrc
+
 
 
 WORKDIR /

@@ -34,7 +34,9 @@ COPY ./srcs/wp-config.php /var/www/localhost/htdocs/wordpress
 COPY ./srcs/default.conf /etc/nginx/conf.d
 
 
-#COPY ./srcs/telegraf.conf /etc/
+#copy telegraf
+WORKDIR /
+COPY ./srcs/telegraf.conf /etc/
 
 # copy check (for reastaart)
 COPY ./srcs/check.sh /
