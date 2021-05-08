@@ -41,6 +41,17 @@ spec:
           ports:
             - containerPort: 21
             - containerPort: 21048
+                    ports:
+            - containerPort: 3306
+          volumeMounts: # папка внутри линукса
+            - mountPath: "/var/ftps"
+              name: ftps_dir
+         volumes:  #внутри minikube папка
+                - name: ftps_dir
+                hostPath:
+                path: /mnt/ftps
+                type: Directory
+    
 # apiVersion: v1
 # kind: Service
 # metadata:

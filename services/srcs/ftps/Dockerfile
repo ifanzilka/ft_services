@@ -4,15 +4,11 @@ FROM alpine:3.12
 # ports
 EXPOSE 21 21048
 
-RUN echo "http://dl-2.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
-RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories
-
 # update
 RUN apk update && apk upgrade
 
 # installs
 RUN apk add wget openssl sudo
-#RUN apk add pure-ftpd
 RUN apk add vsftpd 
 
 # openrc
@@ -45,5 +41,3 @@ COPY ./srcs/start.sh /
 
 # start
 CMD ["sh", "start.sh"]
-#CMD ["/usr/sbin/pure-ftpd", "-p 21048:21048 -P 199.168.99.115 -Y 2"]
-#ENTRYPOINT vsftpd /etc/vsftpd/vsftpd.conf
